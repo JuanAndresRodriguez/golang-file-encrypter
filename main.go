@@ -70,7 +70,7 @@ func decryptHandle() {
 	if !validateFile(file) {
 		panic("File not found")
 	}
-	fmt.Println("Enter password:")
+	fmt.Print("Enter password:")
 	password, _ := term.ReadPassword(0)
 	fmt.Println("\nDecrypting...")
 	filecrypt.Decrypt(file, password)
@@ -78,12 +78,12 @@ func decryptHandle() {
 }
 
 func getPassword() []byte {
-	fmt.Print("Enter password")
+	fmt.Print("Enter password: ")
 	password, _ := term.ReadPassword(0)
 	fmt.Print("\nConfirm Password: ")
 	password2, _ := term.ReadPassword(0)
 	if !validatePassword(password, password2) {
-		fmt.Print("\n Passwords do not match. Please try again.\n")
+		fmt.Print("\nPasswords do not match. Please try again.\n")
 		return getPassword()
 	}
 	return password
